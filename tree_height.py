@@ -32,7 +32,7 @@ def main():
     if "i" in ievade.lower():
         n = int(input(""))
         vecaki = input("")
-        parents = numpy.array(list(map(int, vecaki.split())))
+        parents = [int(x) for x in vecaki.split()]
         result = compute_height(n, parents)
         print(result)
     elif "f" in ievade.lower():
@@ -44,7 +44,7 @@ def main():
             with open("folder/" + file, "r") as f:
                 n = int(f.readline())
                 vecaki = f.readline().strip()
-                parents = numpy.array(list(map(int, vecaki.split())))
+                parents = [int(x) for x in vecaki.split()]
                 result = compute_height(n, parents)
                 print(result)
         except FileNotFoundError:
@@ -52,6 +52,13 @@ def main():
             return
     else:
         print("nepareizi\n")
+
+
+if __name__ == "__main__":
+    sys.setrecursionlimit(10**7)  # max depth of recursion
+    threading.stack_size(2**27)   # new thread will get stack of such size
+    threading.Thread(target=main).start()
+    main()
 
 if __name__ == "__main__":
    sys.setrecursionlimit(10**7)  # max depth of recursion
