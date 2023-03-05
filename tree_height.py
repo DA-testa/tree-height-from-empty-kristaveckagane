@@ -47,7 +47,12 @@ def main():
     else:
         print("nepareizi")
 
- main()
+if __name__ == '_main_':
+    sys.setrecursionlimit(10**7)
+    threading.stack_size(2**27)
+    thread = threading.Thread(target=main)
+    thread.start()
+main()
 
 
 
