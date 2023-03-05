@@ -24,7 +24,6 @@ def compute_height(n, parents):
             for berns in koks[mezgls]:
                 if mas1[berns]==0:
                   sec.append((berns, garums + 1))
-    # Your code here
     return max_height + 1
 
 
