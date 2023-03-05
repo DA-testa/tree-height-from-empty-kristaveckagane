@@ -30,7 +30,7 @@ def compute_height(n, parents):
 
 def main():
     # implement input form keyboard and from files
-     ievade = input("")
+    ievade = input("")
     if "i" in ievade.lower():
         n = int(input())
         vecaki=input()
@@ -40,13 +40,13 @@ def main():
     elif "f" in ievade.lower():
         file = input("")
         if file[0] != "a":
-        with open(file, "r") as f:
+         with open(file, "r") as f:
             n = int(file.readline())
             vecaki = f.readline().strip()
             parents = numpy.array(list(map(int,vecaki.split())))
             result=compute_height(n, parents)
             print(result)
-            else:
+        else:
             print("nepareiza faila nosaukums")
             return
 
