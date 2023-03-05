@@ -3,9 +3,9 @@ import threading
 import numpy
 
 
-def compute_height(n, parents):
+def compute_height(n, vecaki):
     koks = [[]for i in range(n)]
-    for i, vecaks in enumerate(parents):
+    for i, vecaks in enumerate(vecaki):
         if vecaks != -1:
             koks[vecaks].append(i)
     max_height = 0
@@ -28,23 +28,23 @@ def main():
     ievade = input("").strip()
     if "i" == ievade.lower() :
         n = int(input("").strip())
-        vecaki = input("").strip().split()
-        parents = [int(x) for x in vecaki]
-        result = compute_height(n, parents)
+        koki = input("").strip().split()
+        vecaki = [int(x) for x in koki]
+        result = compute_height(n, vecaki)
         print(result)
     elif "f" == ievade.lower() :
         file = input("").strip()
         if "a" in file.lower():
-            print("Nepareiza faila nosaukums. Faila nosaukumā nedrīkst būt burts 'a'.")
+            print("Nepareizs fails")
             return
         with open(file, "r") as f:
             n = int(f.readline().strip())
-            vecaki = f.readline().strip().split()
-            parents = [int(x) for x in vecaki]
-            result = compute_height(n, parents)
+            koki = f.readline().strip().split()
+            vecaki = [int(x) for x in koki]
+            result = compute_height(n, vecaki)
             print(result)
     else:
-        print("nepareizi")
+        print("nepareiza ievade")
 
 if __name__ == '_main_':
     sys.setrecursionlimit(10**7)
