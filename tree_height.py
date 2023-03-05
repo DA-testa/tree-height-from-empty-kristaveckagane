@@ -1,5 +1,5 @@
 # python3
-iimport sys
+import sys
 import threading
 import numpy
 
