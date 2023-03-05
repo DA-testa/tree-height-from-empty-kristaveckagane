@@ -41,7 +41,7 @@ def main():
             print("Nepareiza faila nosaukums. Faila nosaukumā nedrīkst būt burts 'a'.")
             return
         try:
-            with open("folder/"file, "r") as f:
+            with open("folder/" + file, "r") as f:
                 n = int(f.readline())
                 vecaki = f.readline().strip()
                 parents = numpy.array(list(map(int, vecaki.split())))
