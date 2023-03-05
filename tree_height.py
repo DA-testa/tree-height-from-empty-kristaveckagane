@@ -40,7 +40,7 @@ def main():
     elif "f" in ievade.lower():
         file = input("")
         if "a" in file.lower():
-            print("Nepareizs fails")
+            print("Nepareiza faila nosaukums. Faila nosaukumā nedrīkst būt burts 'a'.")
             return
         with open(file, "r") as f:
             n = int(f.readline())
