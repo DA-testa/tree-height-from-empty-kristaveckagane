@@ -26,30 +26,29 @@ def compute_height(n, parents):
     return max_height + 1
 
 def main():
-    ievade = input("")
-    if "i" in ievade.lower():
-        n = int(input(""))
-        vecaki=input("")
-        parents = numpy.array(list(map(int,vecaki.split())))
-        result=compute_height(n, parents)
+    ievade = input("").strip()
+    if "i" == ievade.lower() :
+        n = int(input("").strip())
+        vecaki = input("").strip().split()
+        parents = [int(x) for x in vecaki]
+        result = compute_height(n, parents)
         print(result)
-    elif "f" in ievade.lower():
-        file = input("")
+    elif "f" == ievade.lower() :
+        file = input("").strip()
         if "a" in file.lower():
             print("Nepareiza faila nosaukums. Faila nosaukumā nedrīkst būt burts 'a'.")
             return
         with open(file, "r") as f:
-            n = int(f.readline())
-            vecaki = f.readline().strip()
-            parents = numpy.array(list(map(int,vecaki.split())))
-            result=compute_height(n, parents)
+            n = int(f.readline().strip())
+            vecaki = f.readline().strip().split()
+            parents = [int(x) for x in vecaki]
+            result = compute_height(n, parents)
             print(result)
-        f.close()
     else:
         print("nepareizi")
 
-main()
 
+main()
 
 
 
