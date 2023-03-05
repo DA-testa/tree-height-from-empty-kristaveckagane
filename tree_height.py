@@ -29,7 +29,7 @@ def compute_height(n, parents):
 
 
 def main():
-        ievade = input("")
+    ievade = input("")
     if "i" in ievade.lower():
         n = int(input(""))
         vecaki=input("")
@@ -50,9 +50,10 @@ def main():
         except FileNotFoundError:
             print("fails nav atrasts")
             return
-            print(result)
     else:
         print("nepareizi")
+        return
+                print(result)
 
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
