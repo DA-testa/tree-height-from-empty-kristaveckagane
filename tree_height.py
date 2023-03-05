@@ -38,9 +38,8 @@ def main():
         result=compute_height(n, parents)
         print(result)
     elif "f" in ievade.lower():
-        file = input("Ievadiet faila nosaukumu: ")
+        file = input()
         if "a" in file.lower():
-            print("Nepareiza faila nosaukums")
             return
         with open(file, "r") as f:
             n = int(f.readline())
