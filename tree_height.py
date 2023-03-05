@@ -47,8 +47,7 @@ def main():
     else:
         print("nepareizi")
 
-
-main()
+ main()
 
 
 
