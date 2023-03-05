@@ -1,4 +1,3 @@
-# python3
 import sys
 import threading
 import numpy
@@ -16,7 +15,7 @@ def compute_height(n, parents):
         if mas1[i] == 0:
             sec = [(i, 0)]
         while sec:
-            mezgls, garums = sec.pop(0)
+            mezgls, garums = sec.pop()
             mas1[mezgls] = 1
             mas2[mezgls] = garums
             max_height = max(max_height, garums)
@@ -53,24 +52,3 @@ if __name__ == '_main_':
     thread = threading.Thread(target=main)
     thread.start()
 main()
-
-
-
-
-
-
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-
-
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-
-
-
-# print(numpy.array([1,2,3]))
