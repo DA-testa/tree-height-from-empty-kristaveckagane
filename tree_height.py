@@ -41,13 +41,17 @@ def main():
         if "a" in file.lower():
             print("Nepareiza faila nosaukums. Faila nosaukumā nedrīkst būt burts 'a'.")
             return
-        with open(file, "r") as f:
-            n = int(f.readline())
-            vecaki = f.readline().strip()
-            parents = numpy.array(list(map(int,vecaki.split())))
-            result=compute_height(n, parents)
+         try:
+            with open("folder/" + file_name, 'r') as file:
+                n = int(file.readline())
+                parents_str = file.readline().strip()
+                parents = np.array(list(map(int, parents_str.split())))
+                result = compute_height(n, parents)
+        except FileNotFoundError:
+            print("File not found.")
+            return
             print(result)
-        f.close()
+
     else:
         print("nepareizi")
 
@@ -62,6 +66,7 @@ def main():
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
+
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
