@@ -8,7 +8,7 @@ import numpy
 def compute_height(n, parents):
     koks = [[]for i in range(n)]
     for i, vecaks in enumerate(parents):
-        if parent != -1;
+        if parent != -1:
           koks[vecaks].append(i)
     max_height=0
     for i in range(n):
@@ -20,8 +20,8 @@ def compute_height(n, parents):
             mas2[node]=height
             max_height = max(max_height, height)
             for berns in koks[node]:
-                if mas1[berns]==0
-                sec.append((berns, height + 1))
+                if mas1[berns]==0:
+                  sec.append((berns, height + 1))
     # Your code here
     return max_height + 1
     mas1 = [0]* n
