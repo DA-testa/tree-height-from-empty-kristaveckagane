@@ -29,35 +29,36 @@ def compute_height(n, parents):
 
 def main():
     ievade = input("")
-    if "i" in ievade.lower():
+    if text[0] == "I":
         n = int(input(""))
         vecaki = input("")
-        parents = [int(x) for x in vecaki.split()]
-        result = compute_height(n, parents)
-        print(result)
-    elif "f" in ievade.lower():
-        file = input("")
-        if "a" in file.lower():
-            print("Nepareiza faila nosaukums. Faila nosaukumā nedrīkst būt burts 'a'.")
+        parents = np.array(list(map(int, vecaki.split())))
+        height = compute_height(n, parents)
+    elif text[0] == "F":
+        file_name = input("")
+        if "a" in file_name:
+            print("nepareizs faila nosaukums")
             return
         try:
-            with open("folder/" + file, "r") as f:
-                n = int(f.readline())
-                vecaki = f.readline().strip()
-                parents = [int(x) for x in vecaki.split()]
+            with open("folder/" + file_name, 'r') as file:
+                n = int(file.readline())
+                vecaki = file.readline().strip()
+                parents = np.array(list(map(int, vecaki.split())))
                 result = compute_height(n, parents)
-                print(result)
         except FileNotFoundError:
-            print("fails nav atrasts")
+            print("Fails nav atrasts")
             return
     else:
-        print("nepareizi\n")
+        print("Nepareiza ievade")
+        return
+    print(result)
 
-
-if __name__ == "__main__":
-    sys.setrecursionlimit(10**7)  # max depth of recursion
-    threading.stack_size(2**27)   # new thread will get stack of such size
-    threading.Thread(target=main).start()
+if _name_ == '_main_':
+    sys.setrecursionlimit(10**7)
+    threading.stack_size(2**27)
+    thread = threading.Thread(target=main)
+    thread.start()
     main()
+
 
 # print(numpy.array([1,2,3]))
