@@ -7,12 +7,12 @@ import numpy
 
 def compute_height(n, parents):
     mas1 = [0] * n
-    mas2=[0] * n
+    mas2 = [0] * n
     koks = [[]for i in range(n)]
     for i, vecaks in enumerate(parents):
         if vecaks != -1:
           koks[vecaks].append(i)
-    max_height=0
+    max_height = 0
     for i in range(n):
         if mas1[i]==0:
             sec = [(i, 0)]
@@ -30,8 +30,7 @@ def compute_height(n, parents):
 
 
 def main():
-    # implement input form keyboard and from files
-    ievade = input("")
+    ievade = input()
     if "i" in ievade.lower():
         n = int(input())
         vecaki=input()
@@ -39,17 +38,17 @@ def main():
         result=compute_height(n, parents)
         print(result)
     elif "f" in ievade.lower():
-        file = input("")
-        if file[0] != "a":
-         with open(file, "r") as f:
-            n = int(file.readline())
+        file = input("Ievadiet faila nosaukumu: ")
+        if "a" in file.lower():
+            print("Nepareiza faila nosaukums")
+            return
+        with open(file, "r") as f:
+            n = int(f.readline())
             vecaki = f.readline().strip()
             parents = numpy.array(list(map(int,vecaki.split())))
             result=compute_height(n, parents)
             print(result)
-        else:
-            print("nepareiza faila nosaukums")
-            return
+        f.close()
 
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
