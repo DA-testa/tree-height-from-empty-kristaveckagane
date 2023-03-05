@@ -30,16 +30,17 @@ def compute_height(n, parents):
 
 
 def main():
-    ievade = input()
+    ievade = input("")
     if "i" in ievade.lower():
-        n = int(input())
-        vecaki=input()
+        n = int(input(""))
+        vecaki=input("")
         parents = numpy.array(list(map(int,vecaki.split())))
         result=compute_height(n, parents)
         print(result)
     elif "f" in ievade.lower():
-        file = input()
+        file = input("")
         if "a" in file.lower():
+            print("Nepareizs fails")
             return
         with open(file, "r") as f:
             n = int(f.readline())
@@ -47,7 +48,9 @@ def main():
             parents = numpy.array(list(map(int,vecaki.split())))
             result=compute_height(n, parents)
             print(result)
- 
+        f.close()
+    else:
+        print("nepareizi")
 
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
