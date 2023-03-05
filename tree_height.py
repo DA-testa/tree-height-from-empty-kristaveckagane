@@ -47,7 +47,7 @@ def main():
             parents = numpy.array(list(map(int,vecaki.split())))
             result=compute_height(n, parents)
             print(result)
-        f.close()
+ 
 
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
