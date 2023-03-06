@@ -34,11 +34,11 @@ def main():
         print(result)
     elif "f" == ievade.lower() :
         file=input("").strip()
-        if "a" in file.lower() or not file:
+        if "a" in file.lower() or not os.path.isfile("direktorija/" + file):
             print("Nepareizs fails")
             return
         try:
-          with open("folder/" + file_name, 'r') as file:
+          with open(file, "r") as f:
             n = int(f.readline().strip())
             koki=f.readline().strip().split()
             vecaki=[int(x) for x in koki]
@@ -49,7 +49,7 @@ def main():
     else:
         print("nepareiza ievade")
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     sys.setrecursionlimit(10**7)
     threading.stack_size(2**27)
     thread = threading.Thread(target=main)
