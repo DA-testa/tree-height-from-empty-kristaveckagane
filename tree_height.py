@@ -46,6 +46,8 @@ def main():
             print(result)
         except FileNotFoundError:
             print("fails neeksiste")
+        except IOError:
+            print("Problēmas ar datu lasīšanu no faila")
     else:
         print("nepareiza ievade")
 
