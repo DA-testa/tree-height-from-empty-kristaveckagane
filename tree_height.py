@@ -1,11 +1,11 @@
 import sys
 import threading
+import numpy
 
 
-
-def compute_height(n, vecaki):
+def compute_height(n, parents):
     koks = [[]for i in range(n)]
-    for i, vecaks in enumerate(vecaki):
+    for i, vecaks in enumerate(parents):
         if vecaks != -1:
             koks[vecaks].append(i)
     max_height = 0
@@ -15,39 +15,40 @@ def compute_height(n, vecaki):
         if mas1[i] == 0:
             sec = [(i, 0)]
         while sec:
-            mezgls, garums=sec.pop()
-            mas1[mezgls]=1
-            mas2[mezgls]=garums
-            max_height=max(max_height, garums)
+            mezgls, garums = sec.pop(0)
+            mas1[mezgls] = 1
+            mas2[mezgls] = garums
+            max_height = max(max_height, garums)
             for berns in koks[mezgls]:
-                if mas1[berns]==0:
+                if mas1[berns] == 0:
                     sec.append((berns, garums + 1))
     return max_height + 1
 
 def main():
-    ievade=input("").strip()
+    ievade = input("").strip()
     if "i" == ievade.lower() :
-        n=int(input("").strip())
-        koki=input("").strip().split()
-        vecaki=[int(x) for x in koki]
-        result=compute_height(n, vecaki)
+        n = int(input("").strip())
+        vecaki = input("").strip().split()
+        parents = [int(x) for x in vecaki]
+        result = compute_height(n, parents)
         print(result)
     elif "f" == ievade.lower() :
-        file=input("").strip()
+        file = input("").strip()
         if "a" in file.lower():
-            print("Nepareizs fails")
+            print("Nepareiza faila nosaukums")
             return
         try:
-          with open(file, "r") as f:
-            n = int(f.readline().strip())
-            koki=f.readline().strip().split()
-            vecaki=[int(x) for x in koki]
-            result=compute_height(n, vecaki)
+            file = open("./test/" + file, mode="r")
+            lines = file.readlines()
+            n = int(lines[0])
+            vecaki = lines[1].split()
+            parents = [int(x) for x in vecaki]
+            result = compute_height(n, parents)
             print(result)
-        except FileNotFoundError:
-            print("fails neeksiste")
+        except OSError as e:
+            print(e)
     else:
-        print("nepareiza ievade")
+        print("nepareizi")
 
 if __name__ == '_main_':
     sys.setrecursionlimit(10**7)
