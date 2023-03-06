@@ -38,7 +38,7 @@ def main():
             print("Nepareizs fails")
             return
         try:
-          with open(file, "r") as f:
+          with open(os.path.join("folder", file), "r") as f:
             n = int(f.readline().strip())
             koki=f.readline().strip().split()
             vecaki=[int(x) for x in koki]
