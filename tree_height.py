@@ -29,7 +29,7 @@ def main():
     if "i" == ievade.lower() :
         n = int(input("").strip())
         vecaki = input("").strip().split()
-        parents = [int(x) for x in vecaki]
+        parents = numpy.array(list(map(int,vecaki.split())))
         result = compute_height(n, parents)
         print(result)
     elif "f" == ievade.lower() :
@@ -42,7 +42,7 @@ def main():
             lines = file.readlines()
             n = int(lines[0])
             vecaki = lines[1].split()
-            parents = [int(x) for x in vecaki]
+            parents = numpy.array(list(map(int,vecaki.split())))
             result = compute_height(n, parents)
             print(result)
         except OSError as e:
