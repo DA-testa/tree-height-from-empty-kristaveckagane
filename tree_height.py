@@ -49,7 +49,7 @@ def main():
     else:
         print("nepareiza ievade")
 
-if __name__ == '__main__':
+if __name__ == '_main_':
     sys.setrecursionlimit(10**7)
     threading.stack_size(2**27)
     thread = threading.Thread(target=main)
