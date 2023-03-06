@@ -1,6 +1,6 @@
 import sys
 import threading
-import numpy
+
 
 
 def compute_height(n, vecaki):
@@ -46,14 +46,14 @@ def main():
             print(result)
         except FileNotFoundError:
             print("fails neeksiste")
-        except IOError:
-            print("Problēmas ar datu lasīšanu no faila")
     else:
         print("nepareiza ievade")
 
 if __name__ == '_main_':
-    sys.setrecursionlimit(10**7)
-    threading.stack_size(2**27)
+   # sys.setrecursionlimit(10**7)
+   # threading.stack_size(2**27)
+    sys.setrecursionlimit(107)
+    threading.stack_size(227)
     thread = threading.Thread(target=main)
     thread.start()
 main()
