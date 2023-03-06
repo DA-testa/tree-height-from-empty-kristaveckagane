@@ -29,20 +29,20 @@ def main():
     if "i" == ievade.lower() :
         n = int(input("").strip())
         vecaki = input("").strip().split()
-        parents = [int(x) for x in input_parents]
+        parents = [int(x) for x in vecaki]
         result = compute_height(n, parents)
         print(result)
     elif "f" == ievade.lower() :
         file = input("").strip()
         if "a" in file.lower():
-            print("Nepareiza faila nosaukums")
+            print("Nepareiza faila nosaukums.")
             return
         try:
             file = open("./test/" + file, mode="r")
             lines = file.readlines()
             n = int(lines[0])
             vecaki = lines[1].split()
-            parents = [int(x) for x in input_parents]
+            parents = [int(x) for x in vecaki]
             result = compute_height(n, parents)
             print(result)
         except OSError as e:
