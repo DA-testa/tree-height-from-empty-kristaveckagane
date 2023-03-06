@@ -15,34 +15,37 @@ def compute_height(n, vecaki):
         if mas1[i] == 0:
             sec = [(i, 0)]
         while sec:
-            mezgls, garums = sec.pop()
-            mas1[mezgls] = 1
-            mas2[mezgls] = garums
-            max_height = max(max_height, garums)
+            mezgls, garums=sec.pop()
+            mas1[mezgls]=1
+            mas2[mezgls]=garums
+            max_height=max(max_height, garums)
             for berns in koks[mezgls]:
-                if mas1[berns] == 0:
+                if mas1[berns]==0:
                     sec.append((berns, garums + 1))
     return max_height + 1
 
 def main():
-    ievade = input("").strip()
+    ievade=input("").strip()
     if "i" == ievade.lower() :
-        n = int(input("").strip())
-        koki = input("").strip().split()
-        vecaki = [int(x) for x in koki]
-        result = compute_height(n, vecaki)
+        n=int(input("").strip())
+        koki=input("").strip().split()
+        vecaki=[int(x) for x in koki]
+        result=compute_height(n, vecaki)
         print(result)
     elif "f" == ievade.lower() :
-        file = input("").strip()
+        file=input("").strip()
         if "a" in file.lower():
             print("Nepareizs fails")
             return
-        with open(file, "r") as f:
+        try:
+          with open(file, "r") as f:
             n = int(f.readline().strip())
-            koki = f.readline().strip().split()
-            vecaki = [int(x) for x in koki]
-            result = compute_height(n, vecaki)
+            koki=f.readline().strip().split()
+            vecaki=[int(x) for x in koki]
+            result=compute_height(n, vecaki)
             print(result)
+        except FileNotFoundError:
+            print("fails neeksiste")
     else:
         print("nepareiza ievade")
 
