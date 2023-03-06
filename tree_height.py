@@ -34,7 +34,7 @@ def main():
         print(result)
     elif "f" == ievade.lower() :
         file=input("").strip()
-        if "a" in file.lower() or not os.path.isfile("direktorija/" + file):
+        if "a" in file.lower():
             print("Nepareizs fails")
             return
         try:
