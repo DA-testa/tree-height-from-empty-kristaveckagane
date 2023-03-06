@@ -34,18 +34,16 @@ def main():
         print(result)
     elif "f" == ievade.lower() :
         file=input("").strip()
-        if "a" in file.lower() or not file:
+         file = input("").strip()
+        if "a" in file or not os.path.isfile(os.path.join("folder", file)):
             print("Nepareizs fails")
             return
-        try:
-          with open(os.path.join("folder", file), "r") as f:
+        with open(os.path.join("folder", file), "r") as f:
             n = int(f.readline().strip())
-            koki=f.readline().strip().split()
-            vecaki=[int(x) for x in koki]
-            result=compute_height(n, vecaki)
+            koki = f.readline().strip().split()
+            vecaki = [int(x) for x in koki]
+            result = compute_height(n, vecaki)
             print(result)
-        except FileNotFoundError:
-            print("fails neeksiste")
     else:
         print("nepareiza ievade")
 
